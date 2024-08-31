@@ -265,7 +265,7 @@ https://docs.sonarsource.com/sonarqube/9.8/analyzing-source-code/scanners/jenkin
 3) Configure Docker Build stage in Jenkins Pipeline 
 
 	
-		def imageName = 'vinod.jfrog.io/ashokit-docker-local/profile'
+		def imageName = 'vinod.jfrog.io/vinod-docker-local/profile'
 		def version   = '2.1.4'
 
 
