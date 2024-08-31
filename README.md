@@ -206,9 +206,9 @@ Manage Jenkins --> Global Tool configuration --> Sonarqube scanner    Add sonarq
 7) Write sonar-project.properties file  
 
 sonar.verbose=true
-sonar.organization=ashokit
-sonar.projectKey=ashokit_instalreels
-sonar.projectName=instareels
+sonar.organization=vinod
+sonar.projectKey=vinod_profile
+sonar.projectName=profile
 sonar.language=java
 sonar.sourceEncoding=UTF-8
 sonar.sources=.
@@ -224,11 +224,11 @@ https://docs.sonarsource.com/sonarqube/9.8/analyzing-source-code/scanners/jenkin
 
 		stage('SonarQube analysis') {
             environment{
-                scannerHome = tool 'ashokit-sonarqube-scanner'
+                scannerHome = tool 'vinod-sonarqube-scanner'
             }
 			
 			steps{
-				withSonarQubeEnv('ashokit-sonarqube-server') {
+				withSonarQubeEnv('vinod-sonarqube-server') {
 					sh "${scannerHome}/bin/sonar-scanner"
 				}
 			}
@@ -240,7 +240,7 @@ https://docs.sonarsource.com/sonarqube/9.8/analyzing-source-code/scanners/jenkin
 # Step-7 : Jfrog Artifactory Creation
 
 
-1) Create JFrog Artifactory account (pwd: Jfrogashokit1)
+1) Create JFrog Artifactory account (pwd: Jfrogavinod)
 
 2) Generate an access token with username (username must be your email id)
 
@@ -265,7 +265,7 @@ https://docs.sonarsource.com/sonarqube/9.8/analyzing-source-code/scanners/jenkin
 3) Configure Docker Build stage in Jenkins Pipeline 
 
 	
-		def imageName = 'ashokit.jfrog.io/ashokit-docker-local/insta'
+		def imageName = 'vinod.jfrog.io/ashokit-docker-local/profile'
 		def version   = '2.1.4'
 
 
@@ -371,7 +371,7 @@ sudo ./aws/install --update
 Create a dedicated user in jfrog to use for a docker login
 user menu --> new user
 user name: jfrogcred
-email address: ashokit.classes@gmail.com
+email address: vinod.classes@gmail.com
 password: Jfrogashokit1
 
 
