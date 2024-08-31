@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  vinod-rtp-service
+  namespace: ashokit
+spec:
+  type: NodePort
+  selector:
+    app: vinod-rtp
+  ports:
+  - nodePort: 30082
+    port: 8000
+    targetPort: 8000
