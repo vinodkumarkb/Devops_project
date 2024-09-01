@@ -93,14 +93,14 @@ sudo apt install ansible
 4) Add below content in hosts file 
 
 [jenkins-master]
-18.209.18.194
+10.1.1.139
 
 [jenkins-master:vars]
 ansible_user=ubuntu
 ansible_ssh_private_key_file=/opt/dpp.pem
- 
+
 [jenkins-slave]
-54.224.107.148
+10.1.1.201
 
 [jenkins-slave:vars]
 ansible_user=ubuntu
@@ -207,8 +207,8 @@ Manage Jenkins --> Global Tool configuration --> Sonarqube scanner    Add sonarq
 
 sonar.verbose=true
 sonar.organization=vinod
-sonar.projectKey=vinod_profile
-sonar.projectName=profile
+sonar.projectKey=vinod_profile_app
+sonar.projectName=profile_app
 sonar.language=java
 sonar.sourceEncoding=UTF-8
 sonar.sources=.
@@ -265,7 +265,7 @@ https://docs.sonarsource.com/sonarqube/9.8/analyzing-source-code/scanners/jenkin
 3) Configure Docker Build stage in Jenkins Pipeline 
 
 	
-		def imageName = 'vinod.jfrog.io/vinod-docker-local/profile'
+		def imageName = 'vinod.jfrog.io/vinod-docker-local/profile_app'
 		def version   = '2.1.4'
 
 
@@ -355,7 +355,7 @@ sudo ./aws/install --update
 
 4) Download Kubernetes credentials and cluster configuration (.kube/config file) from the cluster
 
- aws eks update-kubeconfig --region us-east-1 --name ashokit-eks-01
+ aws eks update-kubeconfig --region us-east-1 --name vinod-eks-01
  
  
 
@@ -372,12 +372,12 @@ Create a dedicated user in jfrog to use for a docker login
 user menu --> new user
 user name: jfrogcred
 email address: vinod.classes@gmail.com
-password: Jfrogashokit1
+password: Jfrogvinod1
 
 
 4) To pull an image from jfrog at the docker level, we should log into jfrog using username and password
 
- $ docker login https://ashokit.jfrog.io
+ $ docker login https://vinod.jfrog.io
  
 5) genarate encode value for ~/.docker/config.json file
 
